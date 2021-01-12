@@ -206,7 +206,7 @@ Note that:
   Using different combinations of positions and characters allows the simultaneous identification of multiple conditions on a single bar.
   **This is one of our preferred methods to identify conditions on the chart.**
 - **Method #3** also uses a `plotchar() <https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar>`__ call, but this time the character is positioned on the RSI line. 
-  In order to achieve this, we use `location.absolute <https://www.tradingview.com/pine-script-reference/v4/#var_location{dot}absolute>`__ and Pine's ternary conditional operator (``?``) to define a conditional expression 
+  In order to achieve this, we use `location.absolute <https://www.tradingview.com/pine-script-reference/v4/#var_location{dot}absolute>`__ and Pine's ternary conditional operator (``?:``) to define a conditional expression 
   where a *y* position is used only when our ``rIsLow`` condition is true. When it is not true, ``na`` is used, so no character is displayed.
 - **Method #4** uses `plotshape() <https://www.tradingview.com/pine-script-reference/v4/#fun_plotshape>`__ to plot a blue up arrow in the top part of the indicator's display area when our condition is met.
 - **Method #5** uses `plotarrow() <https://www.tradingview.com/pine-script-reference/v4/#fun_plotarrow>`__ to plot a green up arrow at the bottom of the display when our condition is met.
@@ -416,7 +416,7 @@ We can also extract multiple values from loop iterations by building a single st
 
 Note that:
 
-- The scale in the preceeding screenshot has been manually expanded by clicking and dragging the scale area so the content of the indicator's display area content could be moved vertically to show only its relevant part.
+- The scale in the preceding screenshot has been manually expanded by clicking and dragging the scale area so the content of the indicator's display area content could be moved vertically to show only its relevant part.
 - We use ``tostring(_i, "00")`` to force the display of the loop's index to zero-padded two digits so they align neatly.
 
 When loops with numerous iterations make displaying all their values impractical, you can sample a subset of the iterations. This code uses the `% <https://www.tradingview.com/pine-script-reference/v4/#op_{percent}>`__ (modulo) operator to include values from every second loop iteration::
@@ -429,7 +429,7 @@ When loops with numerous iterations make displaying all their values impractical
 Tips
 ----
 
-The two techniques we use most frequently to bebug our Pine code are::
+The two techniques we use most frequently to debug our Pine code are::
 
     plotchar(v, "v", "", location.top, size = size.tiny)
 
@@ -446,15 +446,14 @@ As we use AutoHotkey for Windows to speed repetitive tasks, we include these lin
     ^+f:: SendInput plotchar(^v, "^v", "", location.top, size = size.tiny){Return}
     ^+p:: SendInput f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, highest(10)[1]), label.set_text(_label, _text)`nf_print(){Left}
 
-The second line will type a debugging `plotchar() <https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar>`__ call including an expression or variable name previously copied to the clipboard when we use ``CTRL-SHIT-F``. 
-Copying the ``variableName`` variable name or the ``close > open`` conditional expression to the clipboard and hitting ``CTRL-SHIT-F`` will, respectively, yield:
+The second line will type a debugging `plotchar() <https://www.tradingview.com/pine-script-reference/v4/#fun_plotchar>`__ call including an expression or variable name previously copied to the clipboard when we use ``CTRL-SHIFT-F``. 
+Copying the ``variableName`` variable name or the ``close > open`` conditional expression to the clipboard and hitting ``CTRL-SHIFT-F`` will, respectively, yield::
 
-.. code-block::
 
     plotchar(variableName, "variableName", "", location.top, size = size.tiny)
     plotchar(close > open, "close > open", "", location.top, size = size.tiny)
 
-The third line triggers on ``CTRL-SHIT-P``. It types our one-line ``f_print()`` function in a script and on a second line, 
+The third line triggers on ``CTRL-SHIFT-P``. It types our one-line ``f_print()`` function in a script and on a second line, 
 an empty call to the function with the cursor placed so all that's left to do is type the string we want to display::
 
     f_print(_text) => var _label = label.new(bar_index, na, _text, xloc.bar_index, yloc.price, color(na), label.style_none, color.gray, size.large, text.align_left), label.set_xy(_label, bar_index, highest(10)[1]), label.set_text(_label, _text)
