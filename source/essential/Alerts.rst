@@ -55,7 +55,7 @@ but by way of the ``alert_message`` parameter for order-generating ``strategy.*(
 programmers can customize the message of alerts triggering on *order fill events* by defining a distinct alert message for any number of order fulfillment events. 
 
 The `alert() <https://www.tradingview.com/pine-script-reference/v4/#fun_alert>`__ 
-function is the most recent addition to Pine. It more or less supercedes 
+function is the most recent addition to Pine. It more or less supersedes 
 `alertcondition() <https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition>`__, and when used in strategies, 
 provides a useful complement to alerts on *order fill events*.
 
@@ -90,7 +90,7 @@ but it can also be used advantageously to generate distinct alerts available for
 Script alerts
 -------------
 
-When a script user creates a *script alert* using the *Create Alert* dialog box, 
+When a script user creates a *script alert* using the "Create Alert" dialog box, 
 the events able to trigger the alert will vary depending on whether the alert is created from a study or a strategy.
 
 A *script alert* created from a **study** will trigger when:
@@ -123,6 +123,7 @@ The `alert() <https://www.tradingview.com/pine-script-reference/v4/#fun_alert>`_
 
 ``freq``
     An "input string" specifying the triggering frequency of the alert. Valid arguments are:
+
         ``alert.freq_once_per_bar``: Only the first call per realtime bar triggers the alert (default value).
 
         ``alert.freq_once_per_bar_close``: An alert is only triggered when the realtime bar closes and an 
@@ -197,7 +198,7 @@ we could have used the following code to generate our alert events::
 Using selective 'alert()' calls
 """""""""""""""""""""""""""""""
 
-When users create a *script alert* on *alert() function events*, the alert will trigger on any call the script makes to the 
+When users create a *script alert* on *alert() function calls*, the alert will trigger on any call the script makes to the 
 `alert() <https://www.tradingview.com/pine-script-reference/v4/#fun_alert>`__ function, provided its frequency constraints are met. 
 If you want to allow your script's users to select which `alert() <https://www.tradingview.com/pine-script-reference/v4/#fun_alert>`__ function call 
 in your script will trigger a *script alert*, you will need to provide them with the means to indicate their preference in your script's inputs, 
@@ -384,7 +385,7 @@ The `alertcondition() <https://www.tradingview.com/pine-script-reference/v4/#fun
    must start at column zero of a line, so cannot be placed in conditional blocks.
 
 ``title``
-   A "const string" optional argument that sets the name of the alert condition as it will appear in the *Create Alert* dialog box's "Condition" field in the charts UI. 
+   A "const string" optional argument that sets the name of the alert condition as it will appear in the "Create Alert" dialog box's "Condition" field in the charts UI. 
    If no argument is supplied, "Alert" will be used.
 
 ``message``
@@ -393,8 +394,8 @@ The `alertcondition() <https://www.tradingview.com/pine-script-reference/v4/#fun
    **As this argument must be a "const string", it must be known at compilation time and thus cannot vary bar to bar.** 
    It can, however, contain placeholders which will be replaced at runtime by dynamic values that may change bar to bar. See this page's `Placeholders`_ section for a list.
 
-The `alertcondition() <https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition>`__ function does not include a ``freq`` parameter. 
-The frequency of *alertcondition() alerts* is determined by users in the "Create Alert" dialog box.
+The `alertcondition() <https://www.tradingview.com/pine-script-reference/v4/#fun_alertcondition>`__ function does not include a 
+``freq`` parameter. The frequency of *alertcondition() alerts* is determined by users in the "Create Alert" dialog box.
 
 
 Using one condition
