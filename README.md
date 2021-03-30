@@ -8,7 +8,7 @@ Follow these steps:
 
 * Execute `sudo make install_tools`
 * Execute `make syncpackages` (this would download the theme)
-* Execute `make html`
+* Execute `make start`
 
 Your docs will be in the `build/html` folder.
 
