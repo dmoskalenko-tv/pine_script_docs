@@ -6,6 +6,81 @@ Release notes
 
 This page contains release notes of notable changes in Pine Script v4.
 
+March 2021
+--------------------------
+New assignment operators were added:
+
+* ``+=``  - addition assignment
+* ``-=``  - subtraction assignment
+* ``*=``  - multiplication assignment
+* ``/=``  - division assignment
+* ``%=``  - modulus assignment
+
+New parameters for inputs customization were added:
+
+* ``inline`` - combines all the input calls with the same inline value in one line.
+* ``group`` - creates a header above all inputs that use the same group string value. The string is also used as the header text.
+* ``tooltip`` - adds a tooltip icon to the ``Inputs`` menu. The tooltip string is shown when hovering over the tooltip icon.
+
+New argument for ``fill`` function was added:
+
+* ``fillgaps`` - controls whether fills continue on gaps when one of the ``plot`` calls returns an ``na`` value. 
+
+A new keyword was added:
+
+* ``varip`` - is similar to the ``var`` keyword, but variables declared with ``varip`` retain their values between the updates of a real-time bar.
+
+New functions were added:
+
+* ``tonumber`` - converts a string value into a float.
+* ``time_close`` - returns the UNIX timestamp of the close of the current bar, based on the resolution and session that is passed to the function.
+* ``dividends`` - requests dividends data for the specified symbol.
+* ``earnings`` - requests earnings data for the specified symbol.
+* ``splits`` - requests splits data for the specified symbol.
+
+New arguments for the study() function were added:
+
+* ``resolution_gaps`` - fills the gaps between values fetched from higher timeframes when using ``resolution``.
+* ``format.percent`` - formats the script output values as a percentage.
+
+
+
+
+February 2021
+--------------------------
+New variable was added:
+
+* ``time_tradingday`` - the beginning time of the trading day the current bar belongs to.
+
+
+
+January 2021
+--------------------------
+The following functions now accept a series length parameter:
+
+* `bb <https://www.tradingview.com/pine-script-reference/v4/#fun_bb>`__
+* `bbw <https://www.tradingview.com/pine-script-reference/v4/#fun_bbw>`__
+* `cci <https://www.tradingview.com/pine-script-reference/v4/#fun_cci>`__
+* `cmo <https://www.tradingview.com/pine-script-reference/v4/#fun_cmo>`__
+* `cog <https://www.tradingview.com/pine-script-reference/v4/#fun_cog>`__
+* `correlation <https://www.tradingview.com/pine-script-reference/v4/#fun_correlation>`__
+* `dev <https://www.tradingview.com/pine-script-reference/v4/#fun_dev>`__
+* `falling <https://www.tradingview.com/pine-script-reference/v4/#fun_falling>`__
+* `mfi <https://www.tradingview.com/pine-script-reference/v4/#fun_mfi>`__
+* `percentile_linear_interpolation <https://www.tradingview.com/pine-script-reference/v4/#fun_percentile_linear_interpolation>`__
+* `percentile_nearest_rank <https://www.tradingview.com/pine-script-reference/v4/#fun_percentile_nearest_rank>`__
+* `percentrank <https://www.tradingview.com/pine-script-reference/v4/#fun_percentrank>`__
+* `rising <https://www.tradingview.com/pine-script-reference/v4/#fun_rising>`__
+* `roc <https://www.tradingview.com/pine-script-reference/v4/#fun_roc>`__
+* `stdev <https://www.tradingview.com/pine-script-reference/v4/#fun_stdev>`__
+* `stoch <https://www.tradingview.com/pine-script-reference/v4/#fun_stoch>`__
+* `variance <https://www.tradingview.com/pine-script-reference/v4/#fun_variance>`__
+* `wpr <https://www.tradingview.com/pine-script-reference/v4/#fun_wpr>`__
+
+A new type of alerts was added - script alerts. More information can be found in our `Help Center <https://www.tradingview.com/chart/?solution=43000597494/>`__.
+
+
+
 December 2020
 --------------------------
 
@@ -40,9 +115,7 @@ The behavior of ``rising`` and ``falling`` functions have changed. For example, 
 September 2020
 --------------------------
 
-Added support for ``input.color`` to the ``input()`` function. Now you can provide script users with color selection through the script’s "Settings/Inputs" tab with the same color widget used throughout the TradingView user interface. Learn more about this feature in our `blog <https://www.tradingview.com/blog/en/create-color-inputs-in-pine-20751/>`_:
-
-::
+Added support for ``input.color`` to the ``input()`` function. Now you can provide script users with color selection through the script’s "Settings/Inputs" tab with the same color widget used throughout the TradingView user interface. Learn more about this feature in our `blog <https://www.tradingview.com/blog/en/create-color-inputs-in-pine-20751/>`__::
 
     //@version=4
     study("My Script", overlay = true)
@@ -53,7 +126,7 @@ Added support for ``input.color`` to the ``input()`` function. Now you can provi
     
 .. image:: images/input_color.png
 
-Added support for arrays and functions for working with them. You can now use the powerful new array feature to build custom datasets. See our `User Manual page on arrays <https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html>`__ and our `blog <https://www.tradingview.com/blog/en/arrays-are-now-available-in-pine-script-20052/>`_::
+Added support for arrays and functions for working with them. You can now use the powerful new array feature to build custom datasets. See our `User Manual page on arrays <https://www.tradingview.com/pine-script-docs/en/v4/essential/Arrays.html>`__ and our `blog <https://www.tradingview.com/blog/en/arrays-are-now-available-in-pine-script-20052/>`__::
 
     //@version=4
     study("My Script")
@@ -62,7 +135,7 @@ Added support for arrays and functions for working with them. You can now use th
         array.push(a, close[i] - open[i])
     plot(array.get(a, 4))
 
-The following functions now accept a series length parameter. Learn more about this feature in our `blog <https://www.tradingview.com/blog/en/pine-functions-support-dynamic-length-arguments-20554/>`_:
+The following functions now accept a series length parameter. Learn more about this feature in our `blog <https://www.tradingview.com/blog/en/pine-functions-support-dynamic-length-arguments-20554/>`__:
 
 * `alma <https://www.tradingview.com/pine-script-reference/v4/#fun_alma>`__
 * `change <https://www.tradingview.com/pine-script-reference/v4/#fun_change>`__
