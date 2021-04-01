@@ -26,3 +26,6 @@ install_hooks:
 
 install_tools:
 	pip install sphinx==1.8.5
+
+start:
+	sh ./start.sh
