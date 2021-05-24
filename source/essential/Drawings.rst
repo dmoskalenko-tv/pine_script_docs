@@ -274,7 +274,7 @@ function:
 
 .. _drawings_line_styles:
 
-Line styles
+Line and box styles
 -----------
 
 Various styles can be applied to lines with either the
