@@ -6,7 +6,7 @@ Drawings
 
 Starting with Pine v4, indicators and strategies can
 create *drawing objects* on the chart. Three types of
-drawings are currently supported: *label*, *line* and *boxex*.
+drawings are currently supported: *label*, *line*, and *boxes*.
 You will find one instance of each on the following chart:
 
 .. image:: images/label_and_line_drawings.png
@@ -16,7 +16,7 @@ You will find one instance of each on the following chart:
   drawing objects created with Pine code, they are essentially different entities.
   Drawing objects created using Pine code cannot be modified with mouse actions.
 
-The line, label and box drawings in Pine v4 allow you to create indicators with more sophisticated
+The line, label, and box drawings in Pine v4 allow you to create indicators with more sophisticated
 visual components, e.g., pivot points, support/resistance levels,
 zig zag lines, labels containing dynamic text, etc.
 
@@ -26,7 +26,7 @@ drawing objects can be created on historical bars as well as in the future, wher
 Creating drawings
 -----------------
 
-Pine drawing objects are created with the `label.new <https://www.tradingview.com/pine-script-reference/v4/#fun_label{dot}new>`_, `line.new <https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new>`__and `box.new <https://www.tradingview.com/pine-script-reference/v4/#fun_box{dot}new>`__functions.
+Pine drawing objects are created with the `label.new <https://www.tradingview.com/pine-script-reference/v4/#fun_label{dot}new>`_ , `line.new <https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}new>`__ and `box.new <https://www.tradingview.com/pine-script-reference/v4/#fun_box{dot}new>`__ functions.
 While each function has many parameters, only the coordinates are mandatory.
 This is an example of code used to create a label on every bar::
 
@@ -110,7 +110,7 @@ The ``xloc.bar_time`` mode makes it possible to place a drawing object in the fu
 
 .. image:: images/label_in_the_future.png
 
-This code places a label object in the future. X-location logic works identically for label, line and box drawings.
+This code places a label object in the future. X-location logic works identically for label, line, and box drawings.
 
 In contrast, y-location logic is different for label and line or box drawings.
 Pine's *line* and *box* drawings always use `yloc.price <https://www.tradingview.com/pine-script-reference/v4/#var_yloc{dot}price>`__,
@@ -124,9 +124,9 @@ When they are used, the value of the ``y`` parameter is ignored and the drawing 
 Modifying drawings
 ------------------
 
-A drawing object can be modified after its creation. The ``label.new``, ``line.new`` and ``box.new`` functions return
+A drawing object can be modified after its creation. The ``label.new``, ``line.new``, and ``box.new`` functions return
 a reference to the created drawing object (of type *series label*, *series line* and *series box* respectively).
-This reference can then be used as the first argument to the ``label.set_*``, ``line.set_*`` or``box.set_*`` functions used to modify drawings.
+This reference can then be used as the first argument to the ``label.set_*``, ``line.set_*``, or ``box.set_*`` functions used to modify drawings.
 For example::
 
     //@version=4
@@ -313,8 +313,8 @@ function:
 Deleting drawings
 -----------------
 
-The `label.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_label{dot}delete>`_, `line.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}delete>`__and `box.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_box{dot}delete>`__
-functions delete *label*, *line* or *box* drawing objects from the chart.
+The `label.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_label{dot}delete>`_, `line.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_line{dot}delete>`__ and `box.delete <https://www.tradingview.com/pine-script-reference/v4/#fun_box{dot}delete>`__
+functions delete *label*, *line*, or *box* drawing objects from the chart.
 
 Here is Pine code that keeps just one label drawing object on the current bar,
 *deleting the old ones*::
@@ -719,7 +719,7 @@ Scrolling the chart left, one will see there are no drawings after approximately
 
 .. image:: images/drawings_total_number_limit.png
 
-You can change the drawing limit to a value in range from 1 to 500 using the max_lines_count, max_labels_count or max_boxes_count parameters for the study and strategy functions::
+You can change the drawing limit to a value in range from 1 to 500 using the max_lines_count, max_labels_count, or max_boxes_count parameters for the study and strategy functions::
 
     //@version=4
     study("My Script", overlay=true, max_labels_count=100)
