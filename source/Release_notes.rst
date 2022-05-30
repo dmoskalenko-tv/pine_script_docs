@@ -18,6 +18,22 @@ This page contains release notes of notable changes in Pine Script™.
 May 2022
 -------------
 
+New build-in indicator was added:
+
+* `24-hour Volume <https://www.tradingview.com/chart/?solution=43000668584>`__ - Is used to measure the total volume of a symbol traded in the last 24 hours.
+
+The Volume Profile group indicators have been renamed. Now they can be found by titles:
+
+* Fixed Range Volume Profile
+* Periodic Volume Profile
+* Session Volume Profile
+* Session Volume Profile HD
+* Visible Range Volume Profile
+
+The SVP and SVP HD indicators now have a "Custom" option for Sessions input. This makes it possible to set the beginning and end of the period for which the profile will be built.
+
+`Matrix <https://www.tradingview.com/pine-script-reference/v5/#op_matrix>`__ support has been added to the `request.security() <https://www.tradingview.com/pine-script-reference/v5/#fun_request{dot}security>`__ function.
+
 The historical states of `arrays <https://www.tradingview.com/pine-script-reference/v5/#op_array>`__ and `matrices <https://www.tradingview.com/pine-script-reference/v5/#op_matrix>`__ can now be referenced with the  `[] <https://www.tradingview.com/pine-script-reference/v5/#op_[]>`__ operator. In the example below, we reference the historic state of a matrix 10 bars ago::
 
 	//@version=5
